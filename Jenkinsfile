@@ -8,7 +8,7 @@ pipeline
 	stages{
 		stage('Code Checkout'){
 			steps{
-				git branch: 'main', url: 'https://github.com/Devops9AM/Docker-Web-App.git'
+				git branch: 'main', url: 'https://github.com/Suma-SBI/Docker-Web-App.git'
 
 			}
 		}
@@ -47,8 +47,8 @@ pipeline
              steps{
 
                 withCredentials([string(credentialsId: 'DockerPassword', variable: 'DockerPassword')]) {
-                sh 'docker login -u thanish -p ${DockerPassword}'
-                sh 'docker image push thanish/$JOB_NAME:v1.$BUILD_ID'
+                sh 'docker login -u lathasuma -p ${DockerPassword}'
+                sh 'docker image push lathasuma/$JOB_NAME:v1.$BUILD_ID'
                 
               }
          }
